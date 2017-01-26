@@ -26,9 +26,9 @@ color:#D242DF;font-size:18px;margin-left:5px;}
 .wz h3{width:300px;height:30px;overflow:hidden;line-height:30px;font-size:17px;font-weight:500;padding-left:5px;color:#325EBD;}
 .wz h3 a{color:#D3535D;}
 .wz h3:hover{padding-left:20px; transition: all 0.5s;-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s;}
-.wz dl{width:730px;margin-top:3px;}
+.wz dl{width:900px;margin-top:3px;}
 .wz dl dd{float:left;width:900px;overflow:hidden;margin-left:5px;}
-.wz dl dd .dd_text_1{height:80px;display:block;overflow:hidden;}
+.wz dl dd .dd_text_1{height:65px;display:block;overflow:hidden;}
 .wz dl dd .dd_text_2{line-height:30px;margin-top:10px;}
 .wz dl dd .dd_text_2 span{padding-left:15px;}
 .wz dl dd .dd_text_2 .author{display:block;width:60px;height:30px; 
