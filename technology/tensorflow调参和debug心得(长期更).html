@@ -36,7 +36,14 @@
     </br>
     3网络的参数命名的时候，根据层命名如name='fc1/w_fc1'，因为这样可以在调参的时候显示的更清楚。
     </p>
-
+    <h1>2dropout经验</h1>
+    <p>我之前没有dropout实践的经验只是大概知道其相当于给神经网络弄成了ensemble学习，说实话加了dropout网络特别的慢慎用。原理上从这篇<a href="http://www.cnblogs.com/santian/p/5457412.html" >博客</a></p>可以看出两个
+    主要的思想</br>
+    1dropout层前后两层的w同步消失。</br>
+    2dropout层不需要改变输出的个数。</br>
+    从这篇明白<a href="http://www.jianshu.com/p/c9f66bc8f96c" >博客</a>“1/keep_prob” 倍的由来。</br>
+    最好的实践例子<a href='https://www.tensorflow.org/get_started/mnist/pros'>官网（需翻墙）</a>。要注意的是除了sess.run(train)要加keep_prob意外，其他sess部分也   
+    必须加，其他部分就都加1.0，因为不是训练，只是为了让placeholder的值填上。这个例子也不错<a href='http://blog.csdn.net//chenriwei2/article/details/50615769'>博客</a>
 
 
 
