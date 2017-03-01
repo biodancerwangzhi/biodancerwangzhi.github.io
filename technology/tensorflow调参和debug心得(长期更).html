@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312">
+<title>深度学习debug心得（长期更）</title>
+<meta name="keywords" content="deep_learning_parameter_turning" />
+
+
+</head>
+
+<body>
+    <h1>1关于test_loss出现nan</h1>
+    <p>我训练一个cnn，当loss不断下降时，突然test_loss变成了nan，问了一圈，可能的原因是数值溢出，梯度太大，sqrt或log中传入了0或者负数，解决方法1换掉sigmoid激活函数，
+    因为里面有log2加正则项让某些梯度减小3降低学习率，因为学习率大很容易减去一个很大的梯度，从而造成负数4激活函数和权重初始化不要在[-1，1]之间5用float32代替float
+    64。说实话这些方法都用了仍然没有解决。
+    </br>
+    我开始到处搜索，找到了一个debug的大杀器tfdbg<a href="https://www.tensorflow.org/versions/master/how_tos/debugger/#frequently_asked_questions" >银色子弹（需要外网）</a>，这是tensorflow
+    官方配套的debug工具，使用方法只需在常规模型代码下多三行代码
+    </br>
+    1引入模块from tensorflow.python import debug as tf_debug
+    </br>
+    2在sess下sess = tf_debug.LocalCLIDebugWrapperSession(sess)开启调试模式
+    </br>
+    3加入调试的筛选条件sess.add_tensor_filter("has_inf_or_nan", tf_debug.has_inf_or_nan)
+    </br>
+    跑模型时会弹出一个界面，输入run -f has_inf_or_nan
+    </br>
+    这时就开始跑模型，模型中如果有参数出现inf或者nan就会报出来，这个有些慢，要等一等，爆出来后点击第一个含有nan或inf的tensor，可以在上方通过点击查看个中属性
+    上方第一个list_tensors是去看所有参数，因为没研究出如何返回所以轻易不要点，说实话这种debug工具我还搞不定，数学不够好，过段时间提升一点再做一下研究。
+    </br>
+    问题还没解决，又搜索，最终找到了原因，因为损失函数选择了交叉熵，里面有log，所以改进交叉熵如<a href="http://stackoverflow.com/questions/33712178/tensorflow-nan-bug" >别人的经验</a>。
+    <h2>这次debug还学到了一些小经验</h2>
+    1把训练集大小搞成20，跑个几百个epoches过拟合这些样本，这样可以搞清楚网络有没有问题。
+    </br>
+    2可以把先把每一步都print出来，如sess.run(w_fc1),看看每一步有没有问题。
+    </br>
+    3网络的参数命名的时候，根据层命名如name='fc1/w_fc1'，因为这样可以在调参的时候显示的更清楚。
+    </p>
+
+
+
+
+
+
+</body>
+</html>
