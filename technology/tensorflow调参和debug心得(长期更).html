@@ -44,7 +44,16 @@
     从这篇明白<a href="http://www.jianshu.com/p/c9f66bc8f96c" >博客</a>“1/keep_prob” 倍的由来。</br>
     最好的实践例子<a href='https://www.tensorflow.org/get_started/mnist/pros'>官网（需翻墙）</a>。要注意的是除了sess.run(train)要加keep_prob意外，其他sess部分也   
     必须加，其他部分就都加1.0，因为不是训练，只是为了让placeholder的值填上。这个例子也不错<a href='http://blog.csdn.net//chenriwei2/article/details/50615769'>博客</a>
-
+    <h1>3mnist数据下不下来，用这篇<a href='http://blog.csdn.net/github_25679381/article/details/54744076'>博客</a>提供的方法，github数据翻墙下载。</h1>
+    <p>以后要用到mnist的例子里</br>
+    from tensorflow.examples.tutorials.mnist import input_data </br> 
+    mnist =input_data.read_data_sets("MNIST_data/", one_hot=True)</br>
+    上面两句需要访问http://yann.lecun.com/exdb/mnist/，这个网址翻墙都访问不了，应该是挂掉了，以后要是修好了，上头两句还能用。</br>
+    如果上面不能用，就把上述博客里的github下载一下，把mnist.py和MNIST_data文件夹放到程序的目录下面，并且把上面两行命令改为</br>
+    from mnist import read_data_sets</br>
+    input_data = read_data_sets('MNIST_data', one_hot=True)</br>
+    这样就调用了read_data_sets这个函数，读取MNIST_data里的数据了。</p>
+    
 
 
 
