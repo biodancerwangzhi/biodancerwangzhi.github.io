@@ -51,9 +51,17 @@
     上面两句需要访问http://yann.lecun.com/exdb/mnist/，这个网址翻墙都访问不了，应该是挂掉了，以后要是修好了，上头两句还能用。</br>
     如果上面不能用，就把上述博客里的github下载一下，把mnist.py和MNIST_data文件夹放到程序的目录下面，并且把上面两行命令改为</br>
     from mnist import read_data_sets</br>
-    input_data = read_data_sets('MNIST_data', one_hot=True)</br>
+    mnist = read_data_sets('MNIST_data', one_hot=True)</br>
     这样就调用了read_data_sets这个函数，读取MNIST_data里的数据了。</p>
-    
+    <h1>4梯度裁剪，用这篇<a href='http://stackoverflow.com/questions/36498127/how-to-effectively-apply-gradient-clipping-in-tensor-flow'>回答</a>提供的方法。</h1>
+    <p>梯度裁剪顾名思义就是为了防止梯度太大，给梯度设个阈值，一般分为4步<a href='https://www.tensorflow.org/versions/master/api_docs/python/train/optimizers#processing_gradients_before_applying_them'>官网教程</a></br>
+    1定义优化器。optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)</br>
+    2计算梯度，大多数时候我都不会专门算梯度，因为.minimize(loss)会自动帮我们
+更新梯度，但是看不见梯度，也不知道是否发生了梯度爆炸。gvs = optimizer.compute_gradients(cost)</br>
+    3设置裁剪条件。capped_gvs = [(tf.clip_by_value(grad, -1., 1.), var) for grad, var in gvs]</br>
+    4应用梯度裁剪到优化器中去。train_op = optimizer.apply_gradients(capped_gvs)
+</p>
+    5调参中各个层的w记录下来，可视化希望每个层的W都有一个比较好的分布，不要全都趋于0。
 
 
 
