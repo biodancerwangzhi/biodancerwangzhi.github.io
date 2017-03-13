@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head><meta charset="utf-8" />
-<title>Untitled4</title>
+<title>1做进化树找motif和logo图</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,7 +11751,83 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#19981;&#24120;&#29992;&#21629;&#20196;&#65288;&#20294;&#37325;&#35201;&#65289;&#38598;&#38182;">&#19981;&#24120;&#29992;&#21629;&#20196;&#65288;&#20294;&#37325;&#35201;&#65289;&#38598;&#38182;<a class="anchor-link" href="#&#19981;&#24120;&#29992;&#21629;&#20196;&#65288;&#20294;&#37325;&#35201;&#65289;&#38598;&#38182;">&#182;</a></h1>
+<h2 id="1CNN&#20013;&#21367;&#31215;&#23618;&#30340;filter&#20013;&#30340;w&#21487;&#20197;print&#20986;&#26469;&#65292;&#36825;&#20010;-1x4xfilter_size&#23601;&#21487;&#20197;&#35748;&#20026;&#26159;&#20301;&#32622;&#26435;&#37325;&#30697;&#38453;&#65288;PWM&#65289;&#65292;&#19981;&#29992;&#25285;&#24515;&#26435;&#37325;&#26377;&#36127;&#30340;&#65292;&#22240;&#20026;PWM&#26412;&#36523;&#21487;&#20197;&#26377;&#36127;&#20540;&#12290;">1CNN&#20013;&#21367;&#31215;&#23618;&#30340;filter&#20013;&#30340;w&#21487;&#20197;print&#20986;&#26469;&#65292;&#36825;&#20010;-1x4xfilter_size&#23601;&#21487;&#20197;&#35748;&#20026;&#26159;&#20301;&#32622;&#26435;&#37325;&#30697;&#38453;&#65288;PWM&#65289;&#65292;&#19981;&#29992;&#25285;&#24515;&#26435;&#37325;&#26377;&#36127;&#30340;&#65292;&#22240;&#20026;PWM&#26412;&#36523;&#21487;&#20197;&#26377;&#36127;&#20540;&#12290;<a class="anchor-link" href="#1CNN&#20013;&#21367;&#31215;&#23618;&#30340;filter&#20013;&#30340;w&#21487;&#20197;print&#20986;&#26469;&#65292;&#36825;&#20010;-1x4xfilter_size&#23601;&#21487;&#20197;&#35748;&#20026;&#26159;&#20301;&#32622;&#26435;&#37325;&#30697;&#38453;&#65288;PWM&#65289;&#65292;&#19981;&#29992;&#25285;&#24515;&#26435;&#37325;&#26377;&#36127;&#30340;&#65292;&#22240;&#20026;PWM&#26412;&#36523;&#21487;&#20197;&#26377;&#36127;&#20540;&#12290;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#序列转换成one-hot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">seq_translate_list</span><span class="p">(</span><span class="n">templet</span><span class="p">,</span><span class="n">seq</span><span class="p">):</span>  
+    <span class="n">final_list</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">templet</span><span class="o">=</span><span class="n">templet</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">seq</span><span class="o">=</span><span class="n">seq</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">seq</span><span class="o">=</span><span class="n">seq</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">templet</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">final_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">final_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">final_list</span>
+<span class="n">list_a</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">sequence</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="o">*</span><span class="mi">10</span>
+<span class="n">list_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_translate_list</span><span class="p">(</span><span class="s1">&#39;atcg&#39;</span><span class="p">,</span><span class="n">sequence</span><span class="p">))</span>
+<span class="c1">#print list_a</span>
+<span class="n">array_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1">#print array_data</span>
+
+
+
+
+<span class="c1">#把权重矩阵转成序列，先从保存的权重里面取回卷积层的权重，再根据最大的atcg中最大的权重转换成序列。</span>
+<span class="n">new_saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">import_meta_graph</span><span class="p">(</span><span class="s1">&#39;./model_parameters/my-model.meta.meta&#39;</span><span class="p">)</span>
+<span class="n">new_saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;./model_parameters/&#39;</span><span class="p">))</span>
+<span class="n">all_vars</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()</span>
+<span class="n">conv_w</span><span class="o">=</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">all_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">num2seq</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conv_w</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">num2seq</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">conv_w</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,</span><span class="n">j</span><span class="p">])]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conv_w</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">])])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[[ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]
+  [ 1.  0.  0.  0.]]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2&#25972;&#29702;&#19968;&#20010;&#20570;&#36827;&#21270;&#26641;&#65292;&#31639;&#19981;&#21516;&#32452;&#38388;&#36317;&#31163;&#30340;&#27969;&#31243;">2&#25972;&#29702;&#19968;&#20010;&#20570;&#36827;&#21270;&#26641;&#65292;&#31639;&#19981;&#21516;&#32452;&#38388;&#36317;&#31163;&#30340;&#27969;&#31243;<a class="anchor-link" href="#2&#25972;&#29702;&#19968;&#20010;&#20570;&#36827;&#21270;&#26641;&#65292;&#31639;&#19981;&#21516;&#32452;&#38388;&#36317;&#31163;&#30340;&#27969;&#31243;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11760,7 +11836,36 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1linux&#26597;&#35810;&#24120;&#35265;&#30005;&#33041;&#37197;&#32622;&#20449;&#24687;">1linux&#26597;&#35810;&#24120;&#35265;&#30005;&#33041;&#37197;&#32622;&#20449;&#24687;<a class="anchor-link" href="#1linux&#26597;&#35810;&#24120;&#35265;&#30005;&#33041;&#37197;&#32622;&#20449;&#24687;">&#182;</a></h2>
+<p>进化树的前提是多序列比对，mega可以做但是很慢（不要用），改为用clustalx做file-&gt;load sequences再用alignment-&gt;do complete alignment得到.aln和.dnd的文件，这个.aln就是比对文件了。马上要画树，用mega画。打开mega，.aln必须先转成.meg文件，使用file-&gt;convert file to mega。然后打开.meg文件，点击phylogeny,选择一种算法，即可画树,选一个画出来好看一点的树。不同组间距离是指两批序列（虽然是两批但放在一个fasta文件内，然后分成两组），可能是两个物种，比较其物种间的相对距离，我的应用是CNN多个filter和少量filter模型效果差不多，原因是多个filter的情况下可能内部相似性比较大，两个不同数量的filter的组的组间相似性又比较小。打开.meg文件，点第三行第一个TA-&gt;第二行第五个select and edit Taxa/Groups-&gt;new group然后把数据按组分开，后面就可以点开初始的页面Distance-&gt;computer within mean group distance，这个计算距离的选项可以计算两个数字，这样也可以比较两个组的相对值，其他只计算一个数字也说不清它们的距离差异。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3MEME&#25214;&#29983;&#25104;&#30340;&#24207;&#21015;&#30340;motif&#65288;De-Nove&#65289;">3MEME&#25214;&#29983;&#25104;&#30340;&#24207;&#21015;&#30340;motif&#65288;De Nove&#65289;<a class="anchor-link" href="#3MEME&#25214;&#29983;&#25104;&#30340;&#24207;&#21015;&#30340;motif&#65288;De-Nove&#65289;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>MEME是一个多工具的数据库，具体介绍可以翻论文笔记本，我今天只用找motif的功能即MEME，这个方法可以根据根据算法（看不懂）计算检验值从而判断效果。使用方式就是导入多条序列，过一会儿就行了。生成的图可以和进化树拼一下。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4&#29992;seqLogo&#21253;,&#23545;&#29983;&#25104;&#30340;&#26435;&#37325;&#30697;&#38453;&#29983;&#25104;&#24207;&#21015;logo&#22270;">4&#29992;<a href="http://davetang.org/muse/2013/01/30/sequence-logos-with-r/?nsukey=nK23W93yFc1e%2FIOy6SJATMrOCs4PsVZmX83DXtLdjJQzpN6CINc2RD49a1wHaLIRCBiLGxOnlqN%2FElBLkSYcEWC5Gk8JABEtCtrSJWK2Doweqd0WeasWPenmyGXPT1busf05lavoQgCpcLTMgS2RtmSx0x%2FCKWdpDFCQKObf%2FoQDjXvCKMkKfFry2CGuBkhb">seqLogo</a>&#21253;,&#23545;&#29983;&#25104;&#30340;&#26435;&#37325;&#30697;&#38453;&#29983;&#25104;&#24207;&#21015;logo&#22270;<a class="anchor-link" href="#4&#29992;seqLogo&#21253;,&#23545;&#29983;&#25104;&#30340;&#26435;&#37325;&#30697;&#38453;&#29983;&#25104;&#24207;&#21015;logo&#22270;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11769,15 +11874,111 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># dmidecode | grep &quot;Product Name&quot; | head -n 1;cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c;lshw -short | grep display | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;;lshw -short | grep memory | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;; lshw -short | grep disk | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;| awk &#39;sub($1,&quot;&quot;)&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#首先要把序列权重矩阵写入文件，代码接着上面的2</span>
+<span class="n">ab</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ab.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conv_w</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="nb">dict</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conv_w</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+        <span class="n">ab</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;#####################&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ab</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">conv_w</span><span class="p">[:,:,</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ab</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 把数组的括号去掉，用于生成R中的向量。</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">cd</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;cd.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ab.txt&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;]&#39;</span><span class="p">:</span>
+            <span class="n">cd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+                      
+        <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">4</span>==0:
+            <span class="n">b</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">cd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;######################&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">cd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="o">+=</span><span class="mi">1</span>                
+<span class="n">cd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 进一步生成向量文件</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;h\d&#39;</span><span class="p">)</span>
+<span class="n">ef</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ef.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;cd.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cd</span><span class="p">:</span>
+    <span class="n">cd_list</span><span class="o">=</span><span class="n">cd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cd_list</span><span class="p">):</span>
+        <span class="c1">#print j[0:2]</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]):</span>
+        <span class="n">ef</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ef</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;a=c(&#39;</span><span class="o">+</span> <span class="n">cd_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ef</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;t=c(&#39;</span><span class="o">+</span> <span class="n">cd_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ef</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;c=c(&#39;</span><span class="o">+</span> <span class="n">cd_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ef</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;g=c(&#39;</span><span class="o">+</span> <span class="n">cd_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+<span class="c1"># 接下来是R里面画图的命令，通过python把atcg的w值都传给r，然后r调包画图</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;\d&#39;</span><span class="p">)</span>
+<span class="n">a_list</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ef.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>                                       <span class="c1">#匹配出数字，并根据数字行的下面几行画图</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;Rscript picture.R </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span>            <span class="c1">#这个地方就可以传给R了</span>
+        <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;a=c(&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">),</span>
+        <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;t=c(&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">),</span>
+        <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;c=c(&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">),</span>
+        <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;g=c(&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">),</span>       
+        <span class="n">j</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+
+        
+<span class="c1">#R中的代码</span>
+<span class="c1">#! /path/to/Rscript</span>
+<span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">)</span>
+<span class="n">Args</span> <span class="o">&lt;-</span> <span class="n">commandArgs</span><span class="p">()</span>
+
+<span class="c1">#指定批量输出图的文件夹</span>
+<span class="n">setwd</span><span class="p">(</span><span class="s1">&#39;C://Users//biodancer//Desktop//pic&#39;</span><span class="p">)</span>
+
+<span class="n">a</span><span class="o">=</span><span class="n">c</span><span class="p">()</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">Args</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)){</span>    <span class="c1">#接受字符串参数并且分割成列表，再把每个值变成数值，再append到向量中</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">i</span><span class="p">))}</span>
+
+<span class="n">t</span><span class="o">=</span><span class="n">c</span><span class="p">()</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">Args</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)){</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">i</span><span class="p">))}</span>
+    
+<span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">()</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">Args</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)){</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">i</span><span class="p">))}</span>
+    
+<span class="n">g</span><span class="o">=</span><span class="n">c</span><span class="p">()</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">Args</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)){</span>
+    <span class="n">g</span><span class="o">=</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">i</span><span class="p">))}</span>
+
+<span class="c1">#把文字转换成数值</span>
+<span class="n">str_num</span><span class="o">=</span><span class="n">Args</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="k">if</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="n">str_num</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;#&#39;</span><span class="p">)</span><span class="n">num</span><span class="o">=</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="n">str_num</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">if</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="n">str_num</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span><span class="n">num</span><span class="o">=</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="n">str_num</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+    
+<span class="n">proportion</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+  <span class="n">rs</span> <span class="o">&lt;-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">rs</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">pwm</span> <span class="o">&lt;-</span> <span class="nb">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">proportion</span><span class="p">)</span>
+<span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">makePWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span>
+<span class="n">png</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="n">gettextf</span><span class="p">(</span><span class="s2">&quot;32_</span><span class="si">%d</span><span class="s2">.png&quot;</span><span class="p">,</span><span class="n">num</span><span class="p">),</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">seqLogo</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+        
 </pre></div>
 
 </div>
-<h2>2以后github更新记得一定要从远端将自己的本地内容更新，再上传更新。<a class='anchor-line' href='http://www.runoob.com/w3cnote/git-gui-window.html'>链接地址</a></h2>
-<h2>3Keras/Python深度学习中的网格搜索超参数调优 <a class='anchor-line' href='http://www.tuicool.com/articles/7nyYVbQ'>链接地址</a></h2>
-<h2>4一个特别好的深度学习讲解<a class='anchor-line' href='http://v.qq.com/vplus/334d685e3cea789f67d5bd9617482a49/videos'>链接地址</a></h2>
-<h2>5制作词云图的网站<a class='anchor-line' href='https://tagul.com/'>词云图</a>，如果需要修改的内容较多，可以先用<a class='anchor-line' href='http://www.jb51.net/article/66764.htm'>代码</a>统计一下单词出现次数，再用词云图网站搞。
-<h2>6这个视频上的数学一定要自己学会。<a class='anchor-line' href='https://v.qq.com/x/page/c0348nzhnu9.html'>网址</a>
 </div>
 </div>
 

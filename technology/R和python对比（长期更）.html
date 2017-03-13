@@ -1,0 +1,304 @@
+<div class="h pbm" style="margin:0px; padding:0px 0px 10px; word-wrap:break-word; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(205,205,205); color:rgb(102,102,102); font-family:Tahoma,Helvetica,SimSun,sans-serif,Hei; line-height:18px">
+<h1 class="ph" style="margin:0px; padding:15px 0px; word-wrap:break-word; font-size:20px; font-family:'Microsoft YaHei','Hiragino Sans GB',STHeiti,Tahoma,SimHei,sans-serif; font-weight:100; color:rgb(0,153,204)">
+python和R我最常用的语法对比（长期更，没有顺序，基本上从python命令找R）</h1>
+</div>
+
+<table border="1" cellspacing="0" cellpadding="0" style="margin:0px; padding:0px; word-wrap:break-word; empty-cells:show; border-collapse:collapse; border:none">
+<tbody style="margin:0px; padding:0px; word-wrap:break-word">
+
+
+
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+&nbsp;</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:center">
+python</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:center">
+R</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+查数据类型</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+type(a)</br>a.shape</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+class(a)</br>dim(a)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+format</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+%s</br>.format()</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+a=gettextf("%s is %f feet tall\n", "Sven", 7.1)</br>a</br>sprintf("%s is %f feet tall\n", "Sven", 7.1)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+print</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+print a</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+print(a)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+多行注释</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+''' 注释内容'''</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+if(FALSE){</br>注释内容</br>}</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+逐行读文件</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+for i in open('e:\data.txt').readlines()</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+con <- file("e:/data.txt", "r")</br>line=readLines(con,n=1)#读几行n等于几，这里是1为了每一次读一行</br>while( length(line) != 0 ) {</br>     print(line)</br>     line=readLines(con,n=1)</br>}</br>close(con)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+接受参数（注意两者接受到的前几个参数都不是传入的，都是显示自身的参数）</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+import sys</br>sys.argv[1]</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+Args <- commandArgs()</br>print(Args)#先把所有的参数都打出来看看，看看具体参数的位置</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+字符串处理相关</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+i.strip('\n')</br></br></br>i.split('\t')</br>a[0]</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+sub(pattern = "\n", replacement = " ", text)#只替换第一个</br>gsub(pattern = "\n", replacement = " ", text)#替换所有的</br></br>
+strsplit(i,split="\t")</br>substr(a,1,1)#以1为起始位置以1为终止位置</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+排序</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+a.sort(axis=0)</br>a.sort(axis=1)</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+apply(a,2,sort)</br>t(apply(a,1,sort))</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+列表处理相关</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+for i in a:</br>&nbsp&nbsp&nbsp&nbspb.append(i)</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+for(i in a){</br>&nbsp&nbsp&nbsp&nbspb=append(b,i)}#这就是奇怪的地方，要赋值给b</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+数学运算</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+a**b</br>power(a,b)</br>a%b</br>math.sqrt(a)</br>math.log(a)</br>math.log10(a)</br>log2(a)</br>math.exp(a)</br>math.pi</br>maximum(a,b)或a.max()</br>a.transpose()</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+a^b</br></br>a%%b</br>sqrt(r)</br>log(a)</br>log10(a)</br>log2(a)</br>exp(a)</br>pi</br>max(a,b)或apply(a,2,max)</br>t(a)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+或且非</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+and</br>or</br>not</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+a&&b</br>a||b</br>!a</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+取随机数</br>均匀分布</br></br>正态分布</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+</br>random.random((10,))</br>random.uniform((10,))</br>random.standard_normal((10,))</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+</br>runif(10)</br></br>rnorm(10)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+常用数据类型</br>向量数组</br>序列</br>向量组合</br></br></br></br></br>reshape</br></br>切片</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+</br>a=array([2,3,4,5])</br>range(1,11)</br>concatenate((a,a), axis=0))</br>vstack((a,b))</br>a = array([[2,3],[4,5]])</br>concatenate((a,b), axis=1)</br>hstack((a,b))
+</br>a.reshape(2,3)</br>a.flatten()</br>a[1:,]</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+</br>a <- c(2,3,4,5)</br>1:10</br>c(a,a)</br>cbind(a,a)</br></br>rbind(c(2,3),c(4,5))
+</br></br>matrix(a,nrow=2,byrow=T)</br>as.vector(t(a))</br>a[-1,]#没有:的用法，如果某一项没有（如行没有），就设为空值</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+画图</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+画图前需要fig = plt.figure()实例化一张图，然后在上面画</br>有了图还需要轴，用ax =fig.add_subplot(1,1,1)或者plt.subplots(nrows=2,ncols=2)</br>显示一张
+图片需要plt.show()</br>清空一张图片需要plt.close('all')</br>保存一张图片plt.savefig('各种类型的文件') </p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+不需要</br>不需要</br></br>不需要</br>dev.off()#否者几张图跌到一起</br>pdf(file=’foo.pdf’)或devSVG(file=’foo.svg’)或png(filename = "a.png"）</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+集合</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+set(a)</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+unique(a)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+集合</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+set(a)</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+unique(a)</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+for循环</br></br>判断</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+for i in a:</br>&nbsp;&nbsp;&nbsp;&nbsp;print i</br>if i>0:print i</br>if a>0: print a else: print 'no'</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+for(i in a){</br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)}</br>if(i>0){print(i)}</br>ifelse(a>0,a,'no')</p>
+</td>
+</tr>
+
+<tr style="margin:0px; padding:0px; word-wrap:break-word">
+<td width="150" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:150px; border:1px solid rgb(0,0,0)">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word">
+常用系统命令</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+os.listdir('.')</br>os.getcwd()</br>os.chdir(’foo’)</br>os.system(’notepad’)</p>
+</td>
+<td width="500" valign="top" style="margin:0px; padding:0px 7px; word-wrap:break-word; width:500px; border-style:solid solid solid none; border-top-color:rgb(0,0,0); border-right-color:rgb(0,0,0); border-bottom-color:rgb(0,0,0); border-top-width:1px; border-right-width:1px; border-bottom-width:1px">
+<p style="margin-top:1.12em; margin-bottom:1.12em; padding-top:0px; padding-bottom:0px; word-wrap:break-word; text-align:left">
+dir()</br>getwd()</br>setwd(’foo’)</br>system("notepad")</p>
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
