@@ -11769,8 +11769,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># dmidecode | grep &quot;Product Name&quot; | head -n 1;cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c;lshw -short | grep display | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;;lshw -short | grep memory | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;; lshw -short | grep disk | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;| awk &#39;sub($1,&quot;&quot;)&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">dmidecode | grep &quot;Product Name&quot; | head -n 1;cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c;lshw -short | grep display | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;;lshw -short | grep memory | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;; lshw -short | grep disk | head -n1 | awk &#39;sub($1,&quot;&quot;)&#39; | awk &#39;sub($1,&quot;&quot;)&#39;| awk &#39;sub($1,&quot;&quot;)&#39;</span>
 </pre></div>
+<h2>起始最常用的就是查cpu，查内存，查硬盘。cat /proc/cpuinfo |grep pro|wc -l;free -g;df -h</h2>
 
 </div>
 <h2>2以后github更新记得一定要从远端将自己的本地内容更新，再上传更新。<a class='anchor-line' href='http://www.runoob.com/w3cnote/git-gui-window.html'>链接地址</a></h2>
@@ -11778,6 +11779,8 @@ div#notebook {
 <h2>4一个特别好的深度学习讲解<a class='anchor-line' href='http://v.qq.com/vplus/334d685e3cea789f67d5bd9617482a49/videos'>链接地址</a></h2>
 <h2>5制作词云图的网站<a class='anchor-line' href='https://tagul.com/'>词云图</a>，如果需要修改的内容较多，可以先用<a class='anchor-line' href='http://www.jb51.net/article/66764.htm'>代码</a>统计一下单词出现次数，再用词云图网站搞。
 <h2>6这个视频上的数学一定要自己学会。<a class='anchor-line' href='https://v.qq.com/x/page/c0348nzhnu9.html'>网址</a>
+<h2>7以后博客用有道云笔记写，写完之后用pandoc转成html。[pandoc --standalone --self-contained  -f markdown -t html  -o demo.html demo.md]</br>当要修改时，从html转回md[pandoc --standalone --self-contained  -f html -t markdown  -o demo.md demo.html]
+<h2>8神经网络的2落3起。<a class='anchor-line' href ='http://qingshan.baijia.baidu.com/article/808641'>链接</a>
 </div>
 </div>
 
